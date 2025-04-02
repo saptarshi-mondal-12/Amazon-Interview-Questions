@@ -29,6 +29,7 @@ class TreeNode{
     }
 };
 
+// Brute Solution--------------------------------------------------------------------------------------------------------------
 TreeNode* findLCA(TreeNode* root, int n1, int n2) {
     if (root == NULL) return NULL;
 
@@ -128,8 +129,11 @@ bool findPair(TreeNode* root, int target, int d) {
 }
 
 
-// ------------------------------------------------------------------------------------ 
 
+
+
+
+// Optimal Solution-------------------------------------------------------------------------------------------------------
 int calculateDistance(TreeNode* root, int u, int v, unordered_map<int,int>mp){
 
     // lowest common ancesstor of 2 node u and v
@@ -256,7 +260,7 @@ int main(){
     int target = 7;
     int d = 2;
 
-    // 1. brute solution
+    // 1. brute solution--------------------------------------------------------------------
     bool brute_result=findPair(root, target, d);
     if (brute_result){
         cout<<"Pair found"<<endl;
@@ -264,9 +268,11 @@ int main(){
         cout<<"No pair found"<<endl;
     }
 
-    // ------------------------------------------
 
-    // 2. optimal solution
+
+    
+
+    // 2. optimal solution-----------------------------------------------------------------
     bool result=optimal_findPair(root, target, d);
     if (result){
         cout<<"Pair found"<<endl;
